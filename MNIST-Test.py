@@ -6,7 +6,9 @@ import gzip
 
 f = gzip.open('data/train-images-idx3-ubyte.gz', 'rb')
 
-print(f.read(4))
+magic = f.read(4)
+int.from_bytes(magic,byteorder='big')
+print(magic)
 
 f.close()
 
