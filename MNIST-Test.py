@@ -6,6 +6,8 @@ import gzip
 import PIL.Image as pil
 import numpy as np
 
+cnt = 0
+
 
 
 def read_images_from_file(filename):
@@ -51,21 +53,31 @@ def printImage(image):
 		
 		print(img_rep)
 			
-#train_images = read_images_from_file('data/train-images-idx3-ubyte.gz')
+train_images = read_images_from_file('data/train-images-idx3-ubyte.gz')
 test_images = read_images_from_file('data/t10k-images-idx3-ubyte.gz')
 
-for row in test_images[4999]:
-	for col in row:
-		print('.' if col <= 127 else '#', end='' )
-	print()
 
-img= test_images[4999]
-img = np.array(img)
-img = pil.fromarray(img)
-img = img.convert('RGB')
-img.show()
-img.save('test-4999-0.png')
+# for image in test_images:
+	# for row in test_images[cnt]:
+		# for col in row:
+			# print('.' if col <= 127 else '#', end='' )
+		# print()	
+	# cnt = cnt+ 1
+		
+		
+	
+	
+##Printing a Image to a file
+for image in train_images:	
+	img= train_images[cnt]
+	img = np.array(img)
+	img = pil.fromarray(img)
+	img = img.convert('RGB')
+	#img.show()
+	img.save("./TrainImgs/train-"+str(cnt)+".png")
+	cnt = cnt+1;
 
+print('DONE!')
 
 	
 
