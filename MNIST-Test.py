@@ -1,3 +1,5 @@
+##Author Karle Sleith
+
 #Adapted From: 
 #https://stackoverflow.com/questions/12902540/read-from-a-gzip-file-in-python
 #https://stackoverflow.com/questions/2872381/how-to-read-a-file-byte-by-byte-in-python-and-how-to-print-a-bytelist-as-a-binar
@@ -9,7 +11,7 @@ import numpy as np
 cnt = 0
 
 
-
+##Method to read images from File
 def read_images_from_file(filename):
 	with gzip.open(filename, 'rb')as f:
 		magic = f.read(4)
@@ -57,6 +59,7 @@ train_images = read_images_from_file('data/train-images-idx3-ubyte.gz')
 test_images = read_images_from_file('data/t10k-images-idx3-ubyte.gz')
 
 
+##Print The image to the cmd
 # for image in test_images:
 	# for row in test_images[cnt]:
 		# for col in row:
